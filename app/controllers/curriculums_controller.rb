@@ -22,6 +22,16 @@ class CurriculumsController < ApplicationController
     @curriculum = Curriculum.find(params[:id])
   end
 
+  def edit
+    @curriculum = Curriculum.find(params[:id])
+  end
+
+  def update
+    @curriculum = Curriculum.find(params[:id])
+    @curriculum.update_attributes(curriculum_params)
+    redirect_to curriculum_path(@curriculum)
+  end
+
   private
 
   def curriculum_params

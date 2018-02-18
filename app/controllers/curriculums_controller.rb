@@ -1,4 +1,6 @@
 class CurriculumsController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:create,:edit,:update]
+
   def index
     @curriculums = Curriculum.all
   end
@@ -30,6 +32,17 @@ class CurriculumsController < ApplicationController
     @curriculum = Curriculum.find(params[:id])
     @curriculum.update_attributes(curriculum_params)
     redirect_to curriculum_path(@curriculum)
+  end
+
+  def destroy
+    @curriculum = Curriculum.find(params[:id])
+
+    if @curriculum.user != current_user
+      return render text: 'Not Allowed', status: :forbidden
+    end
+
+    @curriculum.destroy
+    redirect_to curriculums_path
   end
 
   private

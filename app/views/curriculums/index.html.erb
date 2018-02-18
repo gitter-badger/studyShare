@@ -1,1 +1,9 @@
 <h1>This is the curriculum page</h1>
+<b><%= link_to "Create Curriculum", new_curriculum_path %></b>
+<br />
+<br />
+<% @curriculums.each do |curriculum| %>
+  <%= link_to "#{curriculum.name}", curriculum_path(curriculum) %>
+  <br />
+<% end %>
+

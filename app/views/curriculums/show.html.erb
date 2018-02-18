@@ -1,0 +1,8 @@
+<h1>This is the curriculum show page</h1>
+<%= @curriculum.name %>
+
+<br />
+
+<%= link_to "edit", edit_curriculum_path(@curriculum) %>
+
+<%= link_to "delete", curriculum_path(@curriculum), method: :delete %>

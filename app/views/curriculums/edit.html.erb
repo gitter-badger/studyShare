@@ -1,0 +1,11 @@
+<h1>This is the edit page</h1>
+
+
+<%= form_for @curriculum, url: curriculum_path(@curriculum), method: :PUT do |c| %>
+  <%= c.label :name %>
+  <%= c.text_field :name %><br />
+
+  <%= c.submit %>
+<% end %>
+
+<%= @curriculum.name %>

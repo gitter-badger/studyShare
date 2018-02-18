@@ -1,0 +1,5 @@
+<h1>This is the new curriculum page</h1>
+<%= form_for(@curriculum, url: curriculums_path ) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Submit" %>
+<% end %>

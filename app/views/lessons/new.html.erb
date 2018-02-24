@@ -1,0 +1,10 @@
+<h1>This is the new page for lessons</h1>
+<%= form_for(@lesson, url: curriculum_lessons_path) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+  <%= f.submit "Submit" %>
+<% end %>

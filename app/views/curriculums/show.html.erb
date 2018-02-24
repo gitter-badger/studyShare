@@ -4,10 +4,12 @@
 <br />
 
 <% @curriculum.lessons.each do |lesson| %>
-  <%= lesson.name %>
+  <%= link_to "#{lesson.name}", curriculum_lesson_path(lesson) %>
 <% end %>
 
 <br />
+
+<%= link_to "create new lesson", new_curriculum_lesson_path(@curriculum) %>
 
 <%= link_to "edit", edit_curriculum_path(@curriculum) %>
 

@@ -4,7 +4,7 @@
 <br />
 
 <% @curriculum.lessons.each do |lesson| %>
-  <%= link_to "#{lesson.name}", curriculum_lesson_path(lesson) %>
+  <%= link_to "#{lesson.name}", curriculum_lesson_path(curriculum_id: @curriculum.id, id: lesson.id) %>
 <% end %>
 
 <br />

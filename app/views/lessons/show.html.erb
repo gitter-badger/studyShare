@@ -1,2 +1,4 @@
 <h1> This is the lesson show page</h1>
 <%= @lesson.name %>
+<%= link_to "edit lesson", edit_curriculum_lesson_path(@lesson) %>
+<%= link_to "delete lesson", curriculum_lesson_path(@lesson), method: :delete %>

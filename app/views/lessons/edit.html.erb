@@ -1,0 +1,11 @@
+<h1>This is the lessson edit page</h1>
+
+<%= form_for @lesson, url: curriculum_lesson_path(@lesson, curriculum_id: @lesson.curriculum.id), method: :PUT do |l| %>
+  <%= l.label :name %>
+  <%= l.text_field :name %>
+  <%= l.label :description %>
+  <%= l.text_field :description %>
+  <%= l.label :link %>
+  <%= l.text_field :link %>
+  <%= l.submit "Submit" %>
+<% end %>

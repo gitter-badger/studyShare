@@ -3,6 +3,12 @@
 
 <br />
 
+<% @curriculum.lessons.each do |lesson| %>
+  <%= lesson.name %>
+<% end %>
+
+<br />
+
 <%= link_to "edit", edit_curriculum_path(@curriculum) %>
 
 <%= link_to "delete", curriculum_path(@curriculum), method: :delete %>

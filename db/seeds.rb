@@ -13,4 +13,4 @@ User.destroy_all
 
 User.create(email: "test@test.gmail.com", password: "password")
 Curriculum.create(user_id: 1, name: "test curriculum")
-Lesson.create(curriculum_id: 1, description: "awesome lesson", link: "awesome.com")
+Lesson.create(curriculum_id: 1, name: "best lesson", description: "awesome lesson", link: "awesome.com")

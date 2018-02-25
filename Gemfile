@@ -60,3 +60,7 @@ gem 'devise'
 gem 'rubocop'
 
 gem 'pry'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.7'
+end

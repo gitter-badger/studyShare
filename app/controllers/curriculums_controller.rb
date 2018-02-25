@@ -1,5 +1,5 @@
 class CurriculumsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:create,:edit,:update]
+  before_action :authenticate_user!, only: %i[new create edit update]
 
   def index
     @curriculums = Curriculum.all
@@ -10,7 +10,6 @@ class CurriculumsController < ApplicationController
   end
 
   def create
-
     @curriculum = current_user.curriculums.new(curriculum_params)
 
     if @curriculum.save!

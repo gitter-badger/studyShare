@@ -1,5 +1,5 @@
 class LessonsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: %i[new create edit update]
 
   def show
     @lesson = Lesson.find(params[:id])
@@ -10,7 +10,6 @@ class LessonsController < ApplicationController
   end
 
   def create
-
     @curriculum = Curriculum.find(params[:curriculum_id])
 
     @lesson = @curriculum.lessons.build(lesson_params)
@@ -27,15 +26,16 @@ class LessonsController < ApplicationController
 
   def update
     @lesson = Lesson.find(params[:id])
-    @lesson.update_attributes (lesson_params)
-    redirect_to curriculum_lesson_path(@lesson, curriculum_id: @lesson.curriculum.id)
+    @lesson.update_attributes lesson_params
+    redirect_to curriculum_lesson_path(@lesson,
+                                       curriculum_id: @lesson.curriculum.id)
   end
 
   def destroy
     @lesson = Lesson.find(params[:id])
 
     if @lesson.curriculum.user != current_user
-      return render text: "Not Allowed", status: :forbidden
+      return render text: 'Not Allowed', status: :forbidden
     end
 
     @lesson.destroy

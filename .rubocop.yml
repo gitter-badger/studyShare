@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'test/**/*'
+
+# turning off documentation for module
+Documentation:
+  Enabled: false
+
+# frozen string literal alert
+Style/FrozenStringLiteralComment:
+  Enabled: false

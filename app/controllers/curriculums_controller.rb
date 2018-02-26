@@ -37,7 +37,7 @@ class CurriculumsController < ApplicationController
     @curriculum = Curriculum.find(params[:id])
 
     if @curriculum.user != current_user
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end
 
     @curriculum.destroy

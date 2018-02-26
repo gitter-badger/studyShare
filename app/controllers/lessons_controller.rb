@@ -35,7 +35,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
 
     if @lesson.curriculum.user != current_user
-      return render text: 'Not Allowed', status: :forbidden
+      return render plain: 'Not Allowed', status: :forbidden
     end
 
     @lesson.destroy

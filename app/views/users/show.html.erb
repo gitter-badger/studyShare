@@ -1,0 +1,12 @@
+<h1>This is the user show page</h1>
+curriculum
+<br />
+<% current_user.curriculums.each do |curriculum| %>
+  <%= link_to "#{curriculum.name}", curriculum_path(curriculum) %>
+  <br />
+  lesson
+  <% curriculum.lessons.each do |lesson| %>
+    <br />
+    <%= link_to "#{lesson.name}", curriculum_lesson_path(curriculum_id: curriculum.id, id: lesson.id) %>
+  <% end %>
+<% end %>

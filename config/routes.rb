@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources "curriculums" do
     resources "lessons"
   end
+
+  resources :users, only: :show
 end

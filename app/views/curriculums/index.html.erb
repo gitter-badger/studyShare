@@ -2,8 +2,11 @@
 <b><%= link_to "Create Curriculum", new_curriculum_path %></b>
 <br />
 <br />
-<% @curriculums.each do |curriculum| %>
-  <%= link_to "#{curriculum.name}", curriculum_path(curriculum) %>
-  <br />
-<% end %>
-
+<div class="container">
+  <div class="row" >
+    <% @curriculums.each do |curriculum| %>
+      <%= link_to "#{curriculum.name}", curriculum_path(curriculum), class: "col-sm-4" %>
+      <br />
+    <% end %>
+  </div>
+</div>

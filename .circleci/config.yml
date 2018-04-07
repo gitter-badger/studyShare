@@ -10,7 +10,7 @@ jobs:
       - image: circleci/ruby:2.4.1-node-browsers
         environment:
         - RAILS_ENV: test
-        - PGHOST: db
+        - PGHOST: 127.0.0.1
         - PGUSER: postgres
 
       # Specify service dependencies here if necessary

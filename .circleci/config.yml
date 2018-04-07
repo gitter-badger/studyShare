@@ -11,8 +11,8 @@ jobs:
         environment:
         - RAILS_ENV: test
         - PGHOST: 127.0.0.1
-        - PGUSER: kevin
-      
+        - PGUSER: postgres
+
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
@@ -20,7 +20,7 @@ jobs:
 
       - image: circleci/postgres:10.2
         environment:
-        - POSTGRES_USER: kevin
+        - POSTGRES_USER: postgres
         - POSTGRES_DB: studyshare_test
 
     working_directory: ~/repo
@@ -44,7 +44,7 @@ jobs:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-        
+
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
@@ -55,7 +55,7 @@ jobs:
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            
+
             bundle exec rspec --format progress \
                             --out /tmp/test-results/rspec.xml \
                             --format progress \

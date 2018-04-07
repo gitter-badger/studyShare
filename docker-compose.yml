@@ -15,8 +15,8 @@ services:
       - railsapp-network
   db:
     image: postgres
-    # ports:
-    #   - "5432:5432"
+    ports:
+      - "5432:5432"
     networks:
       - railsapp-network
 

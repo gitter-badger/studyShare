@@ -22,6 +22,7 @@ jobs:
         environment:
         - POSTGRES_USER: kevin
         - POSTGRES_DB: studyshare_test
+        - DATABASE_URL: postgresql://db:5432
 
     working_directory: ~/repo
 

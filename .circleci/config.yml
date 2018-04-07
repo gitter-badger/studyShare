@@ -29,6 +29,14 @@ jobs:
     steps:
       - checkout
 
+      - setup_remote_docker
+      - run:
+        name: Install Docker Compose
+        command: |
+          curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+          chmod +x ~/docker-compose
+          sudo mv ~/docker-compose /usr/local/bin/docker-compose
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -47,20 +55,24 @@ jobs:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+      # - run: bundle exec rake db:create
+      # - run: bundle exec rake db:schema:load
 
       # run tests!
+      # - run:
+      #     name: run tests
+      #     command: |
+      #       mkdir /tmp/test-results
+      #       TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+      #
+      #       bundle exec rspec --format progress \
+      #                       --out /tmp/test-results/rspec.xml \
+      #                       --format progress \
+      #                       $TEST_FILES
       - run:
-          name: run tests
-          command: |
-            mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-
-            bundle exec rspec --format progress \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
+        name: run tests
+        command: |
+          docker exec studyshare_web_1 bundle exec rspec
 
       # collect reports
       - store_test_results:

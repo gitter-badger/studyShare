@@ -79,12 +79,12 @@ jobs:
             chmod +x /usr/local/bin/docker-compose
 
       - run:
-        name: Start container and run tests
-        command: |
-          set -x
-          docker-compose build
-          docker-compose up -d
-          docker exec studyshare_web_1 rspec
+          name: Start container and run tests
+          command: |
+            set -x
+            docker-compose build
+            docker-compose up -d
+            docker exec studyshare_web_1 rspec
 
       # collect reports
       - store_test_results:

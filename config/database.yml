@@ -24,7 +24,8 @@ default: &default
   # testing for docker
   # host: localhost
   # host: 127.0.0.1
-  host: db
+  # uses localhost if not using docker
+  host: <%= ENV['DATABASE_URL'] || "localhost" %>
 
 development:
   <<: *default

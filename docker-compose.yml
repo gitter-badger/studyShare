@@ -4,6 +4,8 @@ services:
   web:
     build:
       context: .
+    environment:
+      DATABASE_URL: db
     command: >
       bash -c "bin/rake db:create db:migrate db:seed
       && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -15,8 +17,8 @@ services:
       - railsapp-network
   db:
     image: postgres
-    ports:
-      - "5432:5432"
+    # ports:
+    #   - "5432:5432"
     networks:
       - railsapp-network
 

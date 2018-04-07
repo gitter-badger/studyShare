@@ -23,8 +23,8 @@ default: &default
   username: postgres
   # testing for docker
   # host: localhost
-  # host: 127.0.0.1
-  host: db
+  host: 127.0.0.1
+  # host: db
 
 development:
   <<: *default

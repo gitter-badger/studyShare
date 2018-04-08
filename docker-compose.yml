@@ -12,7 +12,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/myapp
+      - .:/var/www
     tty: true
     stdin_open: true
     networks:

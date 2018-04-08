@@ -13,6 +13,8 @@ services:
       - "3000:3000"
     volumes:
       - .:/myapp
+    tty: true
+    stdin_open: true
     networks:
       - railsapp-network
   db:

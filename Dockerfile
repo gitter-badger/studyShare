@@ -4,7 +4,8 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
 # Install capybara-webkit deps
 RUN apt-get update \
     && apt-get install -y xvfb qt5-default libqt5webkit5-dev \
-                          gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+                          gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x \
+                          apt-utils
 
 # Node.js
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \

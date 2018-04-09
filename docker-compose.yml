@@ -9,10 +9,11 @@ services:
     command: >
       bash -c "bin/rake db:create db:migrate db:seed
       && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    ports:
-      - "3000:3000"
     volumes:
       - .:/var/www
+      - /var/www/node_modules
+    ports:
+      - "3000:3000"
     tty: true
     stdin_open: true
     networks:
